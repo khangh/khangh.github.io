@@ -3,32 +3,9 @@
 
 <head>
     <script>
-        !function (t, e, n, s, a, c, i, o, p) { t.AppsFlyerSdkObject = a, t.AF = t.AF || function () { (t.AF.q = t.AF.q || []).push([Date.now()].concat(Array.prototype.slice.call(arguments))) }, t.AF.id = t.AF.id || i, t.AF.plugins = {}, o = e.createElement(n), p = e.getElementsByTagName(n)[0], o.async = 1, o.src = "https://websdk.appsflyer.com?" + (c.length > 0 ? "st=" + c.split(",").sort().join(",") + "&" : "") + (i.length > 0 ? "af_id=" + i : ""), p.parentNode.insertBefore(o, p) }(window, document, "script", 0, "AF", "banners", { banners: { key: "679b4df8-fd19-42d4-a63a-f9af154631a9" } })
+        !function (t, e, n, s, a, c, i, o, p) { t.AppsFlyerSdkObject = a, t.AF = t.AF || function () { (t.AF.q = t.AF.q || []).push([Date.now()].concat(Array.prototype.slice.call(arguments))) }, t.AF.id = t.AF.id || i, t.AF.plugins = {}, o = e.createElement(n), p = e.getElementsByTagName(n)[0], o.async = 1, o.src = "https://websdk.appsflyer.com?" + (c.length > 0 ? "st=" + c.split(",").sort().join(",") + "&" : "") + (i.length > 0 ? "af_id=" + i : ""), p.parentNode.insertBefore(o, p) }(window, document, "script", 0, "AF", "banners", { banners: { key: "930ee527-737b-466b-a562-58a463ea85c1" } })
         AF('banners', 'showBanner')
     </script>
-
-    <script type="text/javascript" src="../scripts/onelink-smart-script.js"></script>
-
-    <script type="text/javascript">
-        window.onload = function () {
-            document.getElementById('input_url').innerHTML = window.location.href;
-            const onelinkGenerator = new window.AF.OneLinkUrlGenerator(
-                {
-                    oneLinkURL: "https://engmntqa.onelink.me/LtRd/",
-                    pidKeysList: ['af_pid', 'utm_source'],
-                    campaignKeysList: ['af_c', 'utm_campaign']
-                });
-            const url = onelinkGenerator.generateUrl();
-
-            // onelink is generated
-            if (url) {
-                document.getElementById('andrd_link').setAttribute('href', url);
-                document.getElementById('ios_link').setAttribute('href', url);
-                document.getElementById('output_url').innerHTML = url;
-            }
-        };
-    </script>
-</head>
 
 <body>
     <h1>Hello World</h1>
