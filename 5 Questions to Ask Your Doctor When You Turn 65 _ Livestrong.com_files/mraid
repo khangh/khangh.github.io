@@ -1,0 +1,121 @@
+
+
+window.MRAID_ENV = window.MRAID_ENV || {
+  sdk: 'unknown',
+  sdkVersion: '',
+  version: '2.0',
+  mwebFlag: true
+};
+
+var retryLeft = 3,
+  retryDelay = 100,
+  formatEntrypoint = "https://www.litecdn.com/v3.80.8-2a08e949/formats/image-display/index.js",
+  analyticsSspTrackerUrl = "https://www.litecdn.com/v3.80.8-2a08e949/formats/impression-tracker/index.js",
+  parameters = {"auto_close_display_after":20,"browser":"defaultbrowser","creative_ratio":0.6,"creative_url":"https://medias.presage.io/medias/images/e99b437f-dbd6-4848-8a74-08052e3d0f43.jpg","display_trackers":"<IMG SRC=\"\" BORDER=0 WIDTH=1 HEIGHT=1 ALT=\"Advertisement\"/>","format_base_url":"https://www.litecdn.com/v3.80.8-2a08e949/","entrypoint":"https://www.litecdn.com/v3.80.8-2a08e949/formats/image-display/index.js","browser_keep_alive":true,"click_url":"https://ms-ads-events.presage.io/clk?dsp=ogury&t=1629241690&imp=085685e1-f5da-4380-9f89-a37788887ee8&oc_id=105918&ak=304510&u_id=57445751-d5dd-43b0-8302-e70d78d00b49&u_tk=&u_os=android&u_a=Mozilla%2F5.0%20%28Macintosh%3B%20Intel%20Mac%20OS%20X%2010_15_7%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F92.0.4515.131%20Safari%2F537.36&a_b=www.livestrong.com&a_n=Simple%20Healthy%20Living%20%7C%20Livestrong.com&a_ex=ogury&pg=https%3A%2F%2Fwww.livestrong.com%2Farticle%2F13727693-questions-ask-doctor-age-65%2F&dmn=www.livestrong.com&conn=&d_m=&d_ty=&io_id=60734&g=&c_s=","omid_tracking_enabled":true,"omid_trackers":"<script TYPE=\"application/javascript\" SRC=\"https://pixel.adsafeprotected.com/jload?anId=928046&pubId=www.livestrong.com&campId=105918&advId=Mondelez&chanId=60734&placementId=mWeb&gdpr=&gdpr_consent=\"></script>","browser_enable_preload":false,"iab_category_code":"IAB8","vpaid_tracking":true},
+  callbacks = { onClick: function (context) { if (!context) { return; } var connectivity = (window.navigator && window.navigator.connection && window.navigator.connection.type) || 'unknown'; var userId = '57445751-d5dd-43b0-8302-e70d78d00b49'; var androidVersion = (window.navigator.userAgent.match(/Android (\d+(?:\.\d+){1,2});/) || [])[1]; var installBody = { at: new Date().toISOString(), version: window.MRAID_ENV.sdkVersion, apps_publishers: [context.apiKey], connectivity: connectivity, content: { advertiser: context.advertiserId, campaign: context.campaignId, event: 'completed', advert: context.impressionId } }; var request = new XMLHttpRequest(); request.open('POST', 'https://wsback-track.presage.io/v1/track'); request.setRequestHeader('User', userId); request.setRequestHeader('Instance-Token', context.userInstanceToken); request.setRequestHeader('Device-OS', context.deviceOs); request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8'); request.send(JSON.stringify(installBody)); } },
+  context = {
+    advertiserId: 174,
+    impressionId: "085685e1-f5da-4380-9f89-a37788887ee8",
+    campaignId: 105918,
+    appBundle: "www.livestrong.com",
+    apiKey: "304510",
+    sdkVersion: "3.1.3",
+    userId: "57445751-d5dd-43b0-8302-e70d78d00b49",
+    _appExchange: "ogury",
+    deviceOs: "android",
+    userDataOptin: false,
+    richadvertId: "085685e1f5da43809f89a37788887ee8-105918-304510-0439d11b005c4dcb922914d26a2caef5",
+    adUnitId: "304510_default",
+    adUnitType: "overlay_thumbnail",
+    isAdUnitDraggable: false,
+    formatName: "Thumbnail Display",
+    page: "https://www.livestrong.com/article/13727693-questions-ask-doctor-age-65/",
+    domain: "www.livestrong.com",
+    advertDeliveryType: "precaching",
+    deviceModel: "",
+    deviceType: "",
+    ioId: 60734,
+    userInstanceToken: "",
+    dualAdTag: "",
+    isDualAd: false,
+    gdpr: "",
+    tcfv2: "",
+    showOptoutLink: false
+  },
+  getParameter = function (key) {
+    return parameters[key];
+  },
+  closeAndThrow = function (err) {
+    window.mraid && window.mraid.unload && window.mraid.unload();
+    window.mraid && window.mraid.close && window.mraid.close();
+    throw new Error(err);
+  },
+  retry = function (err) {
+    console.log('retrying inject format', retryLeft);
+    retryLeft--;
+    injectScript(
+      formatEntrypoint,
+      loadFormat,
+      retryLeft > 0 ? retry : closeAndThrow,
+      retryDelay
+    );
+  },
+  getContainer = function () {
+    var container = document.querySelector('#root');
+    if (!container) {
+      container = document.createElement('div');
+      container.id = 'root';
+      try {
+        document.body.insertBefore(container, document.body.firstChild);
+      } catch (e) {
+        document.body.appendChild(container);
+      }
+    }
+    return container;
+  },
+  loadFormat = function () {
+    window.initFormat({
+      container: getContainer(),
+      getParameter: getParameter,
+      context: context,
+      callbacks: callbacks
+    });
+  },
+  injectScript = function (uri, onLoad, onError, delay) {
+    var head = document.getElementsByTagName('head')[0],
+      script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.onload = onLoad;
+    script.onerror = onError;
+    script.src = uri;
+    if (typeof delay !== 'undefined') {
+      setTimeout(function () {
+        head.appendChild(script);
+      }, delay);
+    } else {
+      head.appendChild(script);
+    }
+  },
+  loadAnalyticsSspTracker = function () {
+    window.ogyLoadViewabilityCheck(context);
+  },
+  injectAnalyticsSspTracker = function (url, onLoad) {
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = url;
+    script.onload = onLoad;
+    script.async = true;
+    document.body.appendChild(script);
+  };
+
+if (!formatEntrypoint || typeof formatEntrypoint !== 'string') {
+  closeAndThrow('Failed to get the format entrypoint');
+}
+
+injectScript(formatEntrypoint, loadFormat, retry);
+if (
+  getParameter('analytics_ssp_enable') &&
+  getParameter('analytics_ssp_enable') !== 'false'
+) {
+  injectAnalyticsSspTracker(analyticsSspTrackerUrl, loadAnalyticsSspTracker);
+}

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Banner</title>
+<meta name="ad.size" content="width=300,height=250">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" href="./scroller_styles.css">
+<script>
+	var clickTag1 = "https://www.xiidra.com",
+		clickTag2 = "https://www.fda.gov/safety/medwatch-fda-safety-information-and-adverse-event-reporting-program",
+		clickTag3 = "https://www.novartis.us/sites/www.novartis.us/files/xiidra.pdf",
+		clickTag4 = "https://www.novartis.us/sites/www.novartis.us/files/xiidra_ppi.pdf";
+</script>
+<!-- write your code here -->
+<script>
+	var newscroller;
+	var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+	var scriptsToLoad = [
+		"https://s0.2mdn.net/ads/studio/cached_libs/createjs_2019.11.15_min.js",
+		"https://s0.2mdn.net/ads/studio/cached_libs/tweenmax_1.18.5_23b0de6da0ee295131e32a500470610c_min.js",
+		"isi.js",
+		"index.js"
+	]
+	var scriptsIndex=0;
+	this.addEventListener('DOMContentLoaded',function(){
+		canvas = document.getElementById("canvas");
+		anim_container = document.getElementById("animation_container");
+		dom_overlay_container = document.getElementById("dom_overlay_container");
+		loadScripts();
+	});
+	function loadScripts(){
+		var js = document.createElement('script');
+		js.setAttribute('type','text/javascript');
+		js.setAttribute('src', scriptsToLoad[scriptsIndex]);
+		document.getElementsByTagName('head')[0].appendChild(js);
+		js.onload = function(){
+			if(scriptsIndex < scriptsToLoad.length-1) {
+				scriptsIndex++;
+				loadScripts();
+			}else{
+				init();
+			}
+		};
+	}
+	function init(){		
+		newscroller = new Scroller({
+			container:'#isi-container',
+			content:'#isi',
+			//autoscroll:true,
+			//speed:30,
+			//delay:15,
+			specificWord:['specific word 1','specific word 2']
+		});
+	var comp=AdobeAn.getComposition("07D400F5E06D42F5B67D4D8C49322212");
+	var lib=comp.getLibrary();
+	createjs.MotionGuidePlugin.install();
+	var loader = new createjs.LoadQueue(false);
+	loader.addEventListener("fileload", function(evt){handleFileLoad(evt,comp)});
+	loader.addEventListener("complete", function(evt){handleComplete(evt,comp)});
+	var lib=comp.getLibrary();
+	loader.loadManifest(lib.properties.manifest);
+	}
+function handleFileLoad(evt, comp) {
+	var images=comp.getImages();	
+	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }	
+}
+function handleComplete(evt,comp) {
+	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+	var lib=comp.getLibrary();
+	var ss=comp.getSpriteSheet();
+	var queue = evt.target;
+	var ssMetadata = lib.ssMetadata;
+	for(i=0; i<ssMetadata.length; i++) {
+		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
+	}
+	exportRoot = new lib.B09_ANRG_300X250_DETECTIVE2_NOVARTIS_XIIDRA();
+	stage = new lib.Stage(canvas);
+	stage.enableMouseOver();	
+	//Registers the "tick" event listener.
+	fnStartAnimation = function() {
+		stage.addChild(exportRoot);
+		createjs.Ticker.framerate = lib.properties.fps;
+		createjs.Ticker.addEventListener("tick", stage);
+	}	    
+	//Code to support hidpi screens and responsive scaling.
+	AdobeAn.makeResponsive(false,'both',false,1,[canvas,anim_container,dom_overlay_container]);	
+	AdobeAn.compositionLoaded(lib.properties.id);
+	fnStartAnimation();
+}
+</script>
+<!-- write your code here -->
+<script type="text/javascript">
+    
+  (function() {
+    var MAX_URL_PARAM_LENGTH = 34;
+    var CLICK_X_URL_KEY = 'nx';
+    var CLICK_Y_URL_KEY = 'ny';
+    var CREATIVE_DIMENSIONS_KEY = 'dim';
+    var AD_URL_PARAM = '&adurl=';
+
+    var relegateNavigation = '';
+    var urlParamMap = {};
+
+    urlParamMap[CLICK_X_URL_KEY] = null;
+    urlParamMap[CLICK_Y_URL_KEY] = null;
+    urlParamMap[CREATIVE_DIMENSIONS_KEY] = null;
+
+    var handleClickTagMessage = function(e) {
+      try {
+        var eventData = JSON.parse(e.data);
+      } catch (err) {
+        return;
+      }
+      if (eventData.isInitClickTag) {
+        if (eventData.clickTags) {
+          for (var i = 0; i < eventData.clickTags.length; i++) {
+            var clkTag = eventData.clickTags[i];
+            window[clkTag.name] = clkTag.url;
+          }
+        } else if (eventData.clickTag) {
+          window.clickTag = eventData.clickTag;
+        }
+        relegateNavigation = eventData.relegateNavigation;
+      }
+    };
+
+    var storeClickCoordinates = function(e) {
+      urlParamMap[CLICK_X_URL_KEY] = Math.round(e.clientX);
+      urlParamMap[CLICK_Y_URL_KEY] = Math.round(e.clientY);
+    };
+
+    var getCreativeDimensions = function() {
+      return window.innerWidth + 'x' + window.innerHeight;
+    }
+
+    var getExitClickParams = function(e) {
+      urlParamMap[CREATIVE_DIMENSIONS_KEY] = getCreativeDimensions();
+
+      var exitParams = '';
+      for (var key in urlParamMap) {
+        exitParams += '&' + key + '=';
+        if (urlParamMap[key] !== null) {
+          exitParams += urlParamMap[key];
+        }
+      }
+      return exitParams;
+    }
+
+    var appendExitClickParams = function(url) {
+      var adUrlIndex = url.toLowerCase().indexOf(AD_URL_PARAM);
+      var paramsToBeAdded = getExitClickParams();
+      if (adUrlIndex > -1 && paramsToBeAdded.length <= MAX_URL_PARAM_LENGTH) {
+        url = url.substr(0, adUrlIndex) + paramsToBeAdded +
+          url.substr(adUrlIndex);
+      };
+      return url;
+    };
+
+    if (open.call) {
+      window.open = function(open) {
+        return function(url, name, features) {
+          url = appendExitClickParams(url);
+          if (relegateNavigation === 'parent') {
+            var message = {'clickTag': url, 'isPostClickTag': true};
+            parent.postMessage(JSON.stringify(message), '*');
+          } else {
+            var args = [url, name];
+            if (features) {
+              args.push(features);
+            }
+            open.apply(window, args);
+          }
+        };
+      }(window.open);
+    }
+
+    if (window.addEventListener) {
+      window.addEventListener(
+          'message', handleClickTagMessage, false);
+      window.addEventListener('mousedown', storeClickCoordinates, true);
+    } else {
+      window.attachEvent('onmessage', handleClickTagMessage);
+    }
+  })();
+    
+  </script><script type="text/javascript" src="./createjs_2019.11.15_min.js"></script><script type="text/javascript" src="./tweenmax_1.18.5_23b0de6da0ee295131e32a500470610c_min.js"></script><script type="text/javascript" src="./isi.js"></script><script type="text/javascript" src="./index(1).js"></script></head>
+<body style="margin:0px;">
+	<div id="animation_container" class="banner border" style="overflow:hidden; position: absolute; background-color:rgba(255, 255, 255, 1.00); width:300px; height:250px">
+		<canvas id="canvas" width="300" height="250" style="position: absolute; display: block; background-color: rgb(255, 255, 255); width: 300px; height: 250px;"></canvas>
+		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:300px; height:250px; position: absolute; left: 0px; top: 0px; display: block;">
+		</div>
+		<div id="isi-container" style="transform: matrix3d(1, 0.000174533, 0, 0, -0.000174533, 1, 0, 0, 0, 0, 1, 0, 0, -58, 0, 1);">
+			<div id="isi" class="basic_style chrome-mac">
+			<h1 id="paddingTop">What is Xiidra?</h1>
+                <p>Xiidra is a prescription eye drop used to treat the signs and symptoms of dry eye disease.</p>
+			<h1>Important Safety Information</h1>
+                <p>Do not use Xiidra if you are allergic to any of its ingredients. Seek medical care immediately if you get any symptoms of an allergic reaction.</p>
+				<p>The most common side effects of Xiidra include eye irritation, discomfort or blurred vision when the drops are applied to the eyes, and an unusual taste sensation.</p>
+				<p>To help avoid eye injury or contamination of the solution, do not touch the container tip to your eye or any surface. If you wear contact lenses, remove them before using Xiidra and wait for at least <span class="nobr">15 minutes</span> before placing them back in your eyes.</p>
+				<p>It is not known if Xiidra is safe and effective in children under <span class="nobr">17 years</span> of age.</p>
+                <p class="bold">You are encouraged to report negative side effects of prescription drugs to the FDA. Visit <span id="fda_link" class="link">www.fda.gov/medwatch</span>, or call <span class="nobr">1-800-FDA-1088</span>.</p>
+                <p class="bold">For additional safety information, click here for <span id="fpi_link" class="link">Full&nbsp;Prescribing Information</span> and <span id="pi_link" class="link">Patient Information</span> and discuss with your doctor.</p>
+                 <p class="bold">XIIDRA, the XIIDRA logo and ii are registered trademarks of Novartis AG.</p>
+				<p class="bold">Novartis Pharmaceuticals Corporation</p>
+                <p class="marginTop">East Hanover, New Jersey <span class="nobr">07936-1080</span></p>
+                <div id="legal">
+                  <p class="marginTop">©20<span class="nobr">21 Novartis</span></p></div>
+				<div id="date"><p class="marginTop">4/21</p></div>
+				<div id="code">
+				  <p class="marginTop">114897</p></div>
+		</div>
+		<div class="scroller-container"><div class="knob-arrange"></div><div class="knob" style="top: 10.29px;"></div></div></div>
+
+
+</div><div id="preloadjs-container" style="visibility: hidden; position: absolute; height: 10px; width: 10px; overflow: hidden; transform: translate(-10px, -10px);"></div></body></html>
