@@ -5714,7 +5714,7 @@ to {
        break-inside: avoid;
 }
 .component-global-navigation {
-  position: relative;
+  position: fixed;
   display: flex;
   justify-content: center;
   height: 60px;
@@ -5740,7 +5740,7 @@ to {
 }
 @media (min-width: 1020px) {
 .component-global-navigation .global-nav-wrapper {
-    position: relative;
+    position: fixed;
     min-width: 970px;
     max-width: 1310px;
     height: auto;
@@ -5764,7 +5764,7 @@ to {
 }
 }
 .component-global-navigation .vertical-text {
-  position: absolute;
+  position: fixed;
   font-size: 0;
 }
 .component-global-navigation .vertical-nav-logo {
@@ -5886,7 +5886,7 @@ to {
   margin-bottom: 30px;
 }
 .component-global-navigation .nav__list-parent {
-  position: relative;
+  position: fixed;
 }
 @media (min-width: 1020px) {
 .component-global-navigation .nav__list-parent {
@@ -5978,7 +5978,7 @@ to {
 }
 }
 .component-global-navigation .social-shares__icon {
-  position: relative;
+  position: fixed;
   width: 30px;
   height: 30px;
   margin-right: 10px;
@@ -13399,13 +13399,13 @@ input.hidden {
  *
  **/
 header.site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 10000;
 }
 @media (min-width: 768px) {
 header.site-header {
-    position: relative;
+    position: fixed;
 }
 }
 
@@ -15908,8 +15908,16 @@ window.setTimeout(function(){var a="script",b=document.getElementsByTagName(a)[0
 <noscript>
 <img src="http://b.scorecardresearch.com/p?c1=2&amp;c2=6036385&amp;cv=2.0&amp;cj=1">
 </noscript>
-<script type="text/javascript" id="">window.setTimeout(function(){!function(a,f,g,l,k,h,d,c,e){a.AppsFlyerSdkObject=k;a.AF=a.AF||function(){(a.AF.q=a.AF.q||[]).push([Date.now()].concat(Array.prototype.slice.call(arguments)))};a.AF.id=a.AF.id||d;a.AF.plugins={};c=f.createElement(g);e=f.getElementsByTagName(g)[0];c.async=1;c.src="https://websdk.appsflyer.com?"+(0<h.length?"st\x3d"+h.split(",").sort().join(",")+"\x26":"")+(0<d.length?"af_id\x3d"+d:"");e.parentNode.insertBefore(c,e)}(window,document,"script",0,"AF","banners",{banners:{key:"d7ab9e72-2dc5-4833-bff1-ade269c95c1a"}});
-var b=function(a){return(a=document.cookie.match("(^|;)\\s*"+a+"\\s*\x3d\\s*([^;]+)"))?a.pop():""};b("appsFlyerBannerShown")||(AF("banners","showBanner",{bannerZIndex:10010,additionalParams:{p1:"v1",p2:"v2"}}),b=new Date,b.setTime(b.getTime()+6048E5),document.cookie="appsFlyerBannerShown\x3dtrue; expires\x3d"+b.toUTCString()+"; path\x3d/;")},5E3);</script><div style="display: none; visibility: hidden;"><div id="amzn-assoc-ad-471ea3ba-59b9-4e67-804e-644b197c33c9"></div>
+<script>
+  !function(t,e,n,s,a,c,i,o,p){t.AppsFlyerSdkObject=a,t.AF=t.AF||function(){
+  (t.AF.q=t.AF.q||[]).push([Date.now()].concat(Array.prototype.slice.call(arguments)))},
+  t.AF.id=t.AF.id||i,t.AF.plugins={},o=e.createElement(n),p=e.getElementsByTagName(n)[0],o.async=1,
+  o.src="https://websdk.appsflyer.com?"+(c.length>0?"st="+c.split(",").sort().join(",")+"&":"")+(i.length>0?"af_id="+i:""),
+  p.parentNode.insertBefore(o,p)}(window,document,"script",0,"AF","banners",{banners: {key: "930ee527-737b-466b-a562-58a463ea85c1"}});
+  // Smart Banners are by default set to the max z-index value, so they won't be hidden by the website elements. This can be changed if you want some website components to be on top of the banner.
+  AF('banners', 'showBanner', { bannerZIndex: 1000, additionalParams: { p1: "v1", p2: "v2"}});
+  </script>
+  <div style="display: none; visibility: hidden;"><div id="amzn-assoc-ad-471ea3ba-59b9-4e67-804e-644b197c33c9"></div>
 <script type="text/javascript">window.setTimeout(function(){var a="script",b=document.getElementsByTagName(a)[0];j=document.createElement(a);j.async=!0;j.src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace\x3dUS\x26adInstanceId\x3d471ea3ba-59b9-4e67-804e-644b197c33c9";b.parentNode.insertBefore(j,b)},3E3);</script></div>
 <script type="text/javascript" id="">window.setTimeout(function(){var b=window.innerWidth;b=520>=b?"mobile":820>=b?"tablet":"desktop";"desktop"===b&&(!function(c,f,g,h,a,d,e){c.fbq||(a=c.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},c._fbq||(c._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],d=f.createElement(g),d.async=!0,d.src=h,e=f.getElementsByTagName(g)[0],e.parentNode.insertBefore(d,e))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js"),fbq("dataProcessingOptions",
 ["LDU"],0,0),fbq("init","3398371026846159"),fbq("track","PageView"))},8E3);</script>
