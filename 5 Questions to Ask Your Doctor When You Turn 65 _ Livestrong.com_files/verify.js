@@ -15,8 +15,8 @@ setTimeout(function(){
         var msg = {
             action: 'notifyBrandShieldAdEntityInformation',
             bsAdEntityInformation: {
-                brandShieldId:'c3a5b8ca177a4c71881c35177959fd17',
-                comparisonItems:[{name : 'cmp', value : 21625261},{name : 'plmt', value : 21635831}]
+                brandShieldId:'d14ef1dab8074d80a2a749c975509b69',
+                comparisonItems:[{name : 'cmp', value : 22572456},{name : 'plmt', value : 22674603}]
             }
         };
         var msgString = stringifyFunc(msg);
@@ -24,7 +24,7 @@ setTimeout(function(){
 
         var findAndSendMessage = function() {
             if (!bst2tWin) {
-                var frame = document.getElementById('bst2t_848839594649');
+                var frame = document.getElementById('bst2t_125280606442');
                 if (frame) {
                     bst2tWin = frame.contentWindow;
                 }
@@ -40,14 +40,14 @@ setTimeout(function(){
         setTimeout(findAndSendMessage, 500);
     } catch(err){}
 }, 10);var dvObj = $dvbs;function np764531(g,i){function d(){function d(){function f(b,a){b=(i?"dvp_":"")+b;e[b]=a}var e={},a=function(b){for(var a=[],c=0;c<b.length;c+=2)a.push(String.fromCharCode(parseInt(b.charAt(c)+b.charAt(c+1),32)));return a.join("")},h=window[a("3e313m3937313k3f3i")];h&&(a=h[a("3g3c313k363f3i3d")],f("pltfrm",a));(function(){var a=e;e={};if (a['pltfrm'])dvObj.registerEventCall(g,a,2E3,true)})()}try{d()}catch(f){}}try{dvObj.pubSub.subscribe(dvObj==window.$dv?"ImpressionServed":"BeforeDecisionRender",g,"np764531",d)}catch(f){}}
-;np764531("c3a5b8ca177a4c71881c35177959fd17",false);
+;np764531("d14ef1dab8074d80a2a749c975509b69",false);
 
 
-try{__tagObject_callback_848839594649({ImpressionID:"c3a5b8ca177a4c71881c35177959fd17", ServerPublicDns:"tps701.doubleverify.com"});}catch(e){}
-try{$dvbs.pubSub.publish('BeforeDecisionRender', "c3a5b8ca177a4c71881c35177959fd17");}catch(e){}
-try{__verify_callback_848839594649({
+try{__tagObject_callback_125280606442({ImpressionID:"d14ef1dab8074d80a2a749c975509b69", ServerPublicDns:"tps708.doubleverify.com"});}catch(e){}
+try{$dvbs.pubSub.publish('BeforeDecisionRender', "d14ef1dab8074d80a2a749c975509b69");}catch(e){}
+try{__verify_callback_125280606442({
 ResultID:2,
 Passback:"",
-AdWidth:160,
-AdHeight:600});}catch(e){}
-try{$dvbs.pubSub.publish('AfterDecisionRender', "c3a5b8ca177a4c71881c35177959fd17");}catch(e){}
+AdWidth:320,
+AdHeight:50});}catch(e){}
+try{$dvbs.pubSub.publish('AfterDecisionRender', "d14ef1dab8074d80a2a749c975509b69");}catch(e){}
