@@ -1,0 +1,42 @@
+<html>
+<head>
+  <title>Landing Page</title>
+  
+</head>
+<body>
+  <h1>Landing Page</h1>
+  <!-- By default, the install buttons should have direct links to the stores -->
+  <div>
+    <a id="andrd_link" href="https://play.google.com/store/apps/details?id=com.appsflyer.sampleapp"><img src="/images/andrd.png"alt=""></a>
+  </div>
+  <div>
+    <a id="ios_link" href="https://itunes.apple.com/us/app/id3********"><img src="/images/ios.png" alt=""></a>
+  </div>
+  <!-- If you want one button to serve both Android and iOS, use the code below instead
+  <a id="store_link" href=""><img src="download.png" alt=""></a>
+  -->
+  <script type="text/javascript" src="/landing-page-test.js"></script>
+  <script type="text/javascript">
+    window.onload = function () {
+      var url = generateUrl(true);
+
+      // onelink is generated
+      if (url) {
+        document.getElementById('andrd_link').setAttribute('href', url);
+        document.getElementById('ios_link').setAttribute('href', url);
+      }
+
+      //otherwise, if onelink is not generated it means that the user is redirected
+      // and the store links in the buttons stay the same
+
+      /* for the one button solution for both Android and iOS, use the code below instead
+
+      document.getElementById('store_link').setAttribute('href', url);
+
+      */
+
+    };
+  </script>
+</body>
+
+</html>
