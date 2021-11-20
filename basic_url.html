@@ -64,8 +64,9 @@
             google: 'google_lp'
           }
         });
-      onelinkGenerator.setCustomParameter("cid", "test1");
-      onelinkGenerator.setAfSub3("no_sub3", "new_afsub3");
+      onelinkGenerator.setCustomParameter("af_campaign", "new_afcampaign");
+      onelinkGenerator.setAfSub1("af_sub1", "new_afsub1");
+      onelinkGenerator.setAd("af_ad", "new_afad");
       const url = onelinkGenerator.generateUrl();
 
       // onelink is generated
