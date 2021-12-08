@@ -10,14 +10,6 @@
             in case data was set in either of them during the subscription process
         -->
     <script>
-        function deleteSession() {
-            sessionStorage.removeItem('AF_BANNERS_SESSION_ID');
-        }
-        /*window.onload = function () {
-            AF('pba', 'event', { eventType: 'EVENT', eventValue: { 'category': 'holiday_promotion' }, eventValue: { 'label': 'newspaper' }, eventName: 'subscription' });
-        }*/
-    </script>
-    <script>
         window.onload = function () {
             document.getElementById('displayBanner').addEventListener('click', function () {
                 //AF('pba', 'event', { eventType: 'EVENT', eventValue: { 'category': 'holiday_promotion' }, eventName: 'checkout' });
@@ -48,6 +40,14 @@
     </p>
     <button onclick="deleteSession()">Delete Session</button>
     <button id='displayBanner'>Display Banner</button>
+    <script>
+        function deleteSession() {
+            sessionStorage.removeItem('AF_BANNERS_SESSION_ID');
+        }
+        /*window.onload = function () {
+            AF('pba', 'event', { eventType: 'EVENT', eventValue: { 'category': 'holiday_promotion' }, eventValue: { 'label': 'newspaper' }, eventName: 'subscription' });
+        }*/
+    </script>
 </body>
 
 </html>
