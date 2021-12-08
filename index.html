@@ -10,13 +10,19 @@
             in case data was set in either of them during the subscription process
         -->
     <script>
+        window.onload = function () {
+            document.getElementById('displayBanner').addEventListener('click', function () {
+                //AF('pba', 'event', { eventType: 'EVENT', eventValue: { 'category': 'holiday_promotion' }, eventName: 'checkout' });
+                sessionStorage.removeItem('AF_BANNERS_SESSION_ID');
+            });
+        }
         /*window.onload = function () {
             AF('pba', 'event', { eventType: 'EVENT', eventValue: { 'category': 'holiday_promotion' }, eventValue: { 'label': 'newspaper' }, eventName: 'subscription' });
         }*/
     </script>
     <script>
         window.onload = function () {
-            document.getElementById('checkout').addEventListener('click', function () {
+            document.getElementById('displayBanner').addEventListener('click', function () {
                 //AF('pba', 'event', { eventType: 'EVENT', eventValue: { 'category': 'holiday_promotion' }, eventName: 'checkout' });
                 AF('banners', 'showBanner')
             });
@@ -43,7 +49,8 @@
         <li>Price: $15</li>
     </ul>
     </p>
-    <button id='checkout'>Checkout</button>
+    <button id='removeSession'>Remove Session</button>
+    <button id='displayBanner'>Display Banner</button>
 </body>
 
 </html>
