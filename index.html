@@ -27,33 +27,6 @@
 </head>
 
 <body>
-    <script type="text/javascript" src="../scripts/onelink-smart-script.js"></script>
-    <script type="text/javascript">
-        window.onload = function () {
-            const onelinkGenerator = new window.AF.OneLinkUrlGenerator(
-                {
-                    oneLinkURL: "https://khangafandroid.onelink.me/gkpB/",
-                    pidKeysList: ['af_pid', 'utm_source'],
-                    pidStaticValue: 'website',
-                    campaignKeysList: ['af_c', 'utm_campaign'],
-                    campaignStaticValue: 'mobile',
-                    gclIdParam: 'af_sub1',
-                    pidOverrideList: {
-                        google: 'google_lp'
-                    }
-                });
-
-            const url = onelinkGenerator.generateUrl();
-
-            // onelink is generated
-            if (url) {
-                document.getElementById('andrd_link').setAttribute('href', url);
-                document.getElementById('ios_link').setAttribute('href', url);
-                document.getElementById('output_url').innerHTML = url;
-            }
-
-        };
-    </script>
     <h1>Thank you for visiting my Github!</h1>
     <h1>This is an AppsFlyer Test</h1>
     <h2>I Repeat</h2>
