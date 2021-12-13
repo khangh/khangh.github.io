@@ -6,9 +6,9 @@
             t.AppsFlyerSdkObject = a, t.AF = t.AF || function () {
                 (t.AF.q = t.AF.q || []).push([Date.now()].concat(Array.prototype.slice.call(arguments)))
             },
-            t.AF.id = t.AF.id || i, t.AF.plugins = {}, o = e.createElement(n), p = e.getElementsByTagName(n)[0], o.async = 1,
-            o.src = "https://websdk.appsflyer.com?" + (c.length > 0 ? "st=" + c.split(",").sort().join(",") + "&" : "") + (i.length > 0 ? "af_id=" + i : ""),
-            p.parentNode.insertBefore(o, p)
+                t.AF.id = t.AF.id || i, t.AF.plugins = {}, o = e.createElement(n), p = e.getElementsByTagName(n)[0], o.async = 1,
+                o.src = "https://websdk.appsflyer.com?" + (c.length > 0 ? "st=" + c.split(",").sort().join(",") + "&" : "") + (i.length > 0 ? "af_id=" + i : ""),
+                p.parentNode.insertBefore(o, p)
         }(window, document, "script", 0, "AF", "pba,banners", { pba: { webAppId: "fee7bef7-d09d-4441-bc1d-2c8b7e8943b9" }, banners: { key: "2f809f7d-1319-4f35-b02e-bedd5f8592ce" } });
         AF('banners', 'showBanner');
     </script>
@@ -27,6 +27,34 @@
 </head>
 
 <body>
+    <script type="text/javascript" src="../scripts/onelink-smart-script.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            document.getElementById('input_url').innerHTML = window.location.href;
+            const onelinkGenerator = new window.AF.OneLinkUrlGenerator(
+                {
+                    oneLinkURL: "https://khangafandroid.onelink.me/gkpB/",
+                    pidKeysList: ['af_pid', 'utm_source'],
+                    pidStaticValue: 'website',
+                    campaignKeysList: ['af_c', 'utm_campaign'],
+                    campaignStaticValue: 'mobile',
+                    gclIdParam: 'af_sub1',
+                    pidOverrideList: {
+                        google: 'google_lp'
+                    }
+                });
+
+            const url = onelinkGenerator.generateUrl();
+
+            // onelink is generated
+            if (url) {
+                document.getElementById('andrd_link').setAttribute('href', url);
+                document.getElementById('ios_link').setAttribute('href', url);
+                document.getElementById('output_url').innerHTML = url;
+            }
+
+        };
+    </script>
     <h1>Thank you for visiting my Github!</h1>
     <h1>This is an AppsFlyer Test</h1>
     <h2>I Repeat</h2>
