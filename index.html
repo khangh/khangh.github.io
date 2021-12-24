@@ -18,12 +18,23 @@
         -->
     <script>
         window.onload = function () {
+            AF('pba', 'event', { eventType: 'EVENT', eventValue: { 'category': 'holiday_promotion' }, eventValue: { 'label': 'newspaper' }, eventName: 'subscription' });
+        }
+    </script>
+    <script>
+        window.onload = function () {
             document.getElementById('displayBanner').addEventListener('click', function () {
                 AF('pba', 'event', { eventType: 'EVENT', eventValue: { 'category': 'holiday_promotion' }, eventName: 'checkout' });
-                //AF('banners', 'showBanner')
             });
         }
     </script>
+        <script>
+            window.onload = function () {
+                document.getElementById('displayBanner').addEventListener('click', function () {
+                    AF('banners', 'showBanner')
+                });
+            }
+        </script>
 </head>
 
 <body>
@@ -46,14 +57,13 @@
     </ul>
     </p>
     <button onclick="deleteSession()">Delete Session</button>
+    <button id='purchaseCheckout'>Purchase Checkout</button>
     <button id='displayBanner'>Display Banner</button>
+
     <script>
         function deleteSession() {
             sessionStorage.removeItem('AF_BANNERS_SESSION_ID');
         }
-        /*window.onload = function () {
-            AF('pba', 'event', { eventType: 'EVENT', eventValue: { 'category': 'holiday_promotion' }, eventValue: { 'label': 'newspaper' }, eventName: 'subscription' });
-        }*/
     </script>
 </body>
 
