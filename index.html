@@ -19,22 +19,14 @@
     <script>
         window.onload = function () {
             AF('pba', 'event', { eventType: 'EVENT', eventValue: { 'category': 'holiday_promotion' }, eventValue: { 'label': 'newspaper' }, eventName: 'subscription' });
-        }
-    </script>
-    <script>
-        window.onload = function () {
             document.getElementById('purchaseCheckout').addEventListener('click', function () {
                 AF('pba', 'event', { eventType: 'EVENT', eventValue: { 'category': 'holiday_promotion' }, eventName: 'checkout' });
             });
+            document.getElementById('displayBanner').addEventListener('click', function () {
+                AF('banners', 'showBanner')
+            });
         }
     </script>
-        <script>
-            window.onload = function () {
-                document.getElementById('displayBanner').addEventListener('click', function () {
-                    AF('banners', 'showBanner')
-                });
-            }
-        </script>
 </head>
 
 <body>
