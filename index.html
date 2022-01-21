@@ -28,13 +28,13 @@
             AF('pba', 'event', { eventType: 'EVENT', eventValue: { 'category': 'holiday_promotion' }, eventValue: { 'label': 'newspaper' }, eventName: 'subscription' });
         }
     </script>
-    <script>
+    <!-- <script>
         window.onload = function () {
             document.getElementById('displayBanner').addEventListener('click', function () {
                 AF('banners', 'showBanner')
             });
         }
-    </script>
+    </script> -->
 </head>
 
 <body>
@@ -56,9 +56,10 @@
         <li>!!!!!!!</li>
     </ul>
     </p>
-    <button onclick="deleteSession()">Delete Session</button>
+
     <button id='checkout'>Purchase Checkout</button>
-    <button id='displayBanner'>Display Banner</button>
+    <button onclick="deleteSession()">Delete Session</button>
+    <!-- <button id='displayBanner'>Display Banner</button> -->
 
     <script>
         function deleteSession() {
