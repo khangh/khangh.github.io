@@ -24,7 +24,7 @@
         }
     </script>
     <script>
-        window.onload = function () {
+        function purchaseCheckout() {
             AF('pba', 'event', { eventType: 'EVENT', eventValue: { 'category': 'holiday_promotion' }, eventValue: { 'label': 'newspaper' }, eventName: 'subscription' });
         }
     </script>
@@ -58,6 +58,7 @@
     </p>
 
     <button id='checkout'>Purchase Checkout</button>
+    <!-- <button onclick="deleteSession()">Delete Session</button> -->
     <!-- <button onclick="deleteSession()">Delete Session</button> -->
     <!-- <button id='displayBanner'>Display Banner</button> -->
 
