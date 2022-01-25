@@ -2,15 +2,8 @@
 
 <head>
     <script>
-        !function (t, e, n, s, a, c, i, o, p) {
-            t.AppsFlyerSdkObject = a, t.AF = t.AF || function () {
-                (t.AF.q = t.AF.q || []).push([Date.now()].concat(Array.prototype.slice.call(arguments)))
-            },
-                t.AF.id = t.AF.id || i, t.AF.plugins = {}, o = e.createElement(n), p = e.getElementsByTagName(n)[0], o.async = 1,
-                o.src = "https://websdk.appsflyer.com?" + (c.length > 0 ? "st=" + c.split(",").sort().join(",") + "&" : "") + (i.length > 0 ? "af_id=" + i : ""),
-                p.parentNode.insertBefore(o, p)
-        }(window, document, "script", 0, "AF", "pba,banners", { pba: { webAppId: "fee7bef7-d09d-4441-bc1d-2c8b7e8943b9" }, banners: { key: "2f809f7d-1319-4f35-b02e-bedd5f8592ce" } });
-        AF('banners', 'showBanner');
+        !function (t, e, n, s, a, c, i, o, p) { t.AppsFlyerSdkObject = a, t.AF = t.AF || function () { (t.AF.q = t.AF.q || []).push([Date.now()].concat(Array.prototype.slice.call(arguments))) }, t.AF.id = t.AF.id || i, t.AF.plugins = {}, o = e.createElement(n), p = e.getElementsByTagName(n)[0], o.async = 1, o.src = "https://websdk.appsflyer.com?" + (c.length > 0 ? "st=" + c.split(",").sort().join(",") + "&" : "") + (i.length > 0 ? "af_id=" + i : ""), p.parentNode.insertBefore(o, p) }(window, document, "script", 0, "AF", "banners", { banners: { key: "eda7d389-75a0-477e-be2a-d31270dd4598" } })
+        AF('banners', 'showBanner')
     </script>
     <!-- Assume that the server returns a response with details about the newly subscribed user -->
     <!-- Alternatively, you can extract data from localStorage or cookies,
@@ -21,6 +14,7 @@
             AF('pba', 'event', { eventType: 'EVENT', eventValue: { 'category': 'holiday_promotion' }, eventName: 'checkout' });
         }
     </script>
+
     <script>
         window.onload = function () {
             AF('pba', 'event', { eventType: 'EVENT', eventValue: { 'category': 'holiday_promotion' }, eventValue: { 'label': 'newspaper' }, eventName: 'subscription' });
