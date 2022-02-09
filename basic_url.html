@@ -41,7 +41,7 @@
   <script type="text/javascript">
     window.onload = function () {
       document.getElementById('input_url').innerHTML = window.location.href;
-      const onelinkGenerator = new window.AF.OneLinkUrlGenerator(
+      let onelinkGenerator = new window.AF.OneLinkUrlGenerator(
         {
           oneLinkURL: "https://impressions.onelink.me/gkpB/",
           pidKeysList: ['af_pid', 'utm_source'],
@@ -54,7 +54,7 @@
           }
         });
 
-      const url = onelinkGenerator.generateUrl();
+      let url = onelinkGenerator.generateUrl();
 
       // onelink is generated
       if (url) {
@@ -65,8 +65,33 @@
 
     };
   </script>
-</body>
+  <script type="text/javascript">
+    window.onload = function () {
+      document.getElementById('input_url').innerHTML = window.location.href;
+      let onelinkGenerator = new window.AF.OneLinkUrlGenerator(
+        {
+          oneLinkURL: "https://khangafandroid.onelink.me/gkpB/",
+          pidKeysList: ['af_pid', 'utm_source'],
+          pidStaticValue: 'website',
+          campaignKeysList: ['af_c', 'utm_campaign'],
+          campaignStaticValue: 'mobile',
+          gclIdParam: 'af_sub1',
+          pidOverrideList: {
+            google: 'google_lp'
+          }
+        });
 
+      let url = onelinkGenerator.generateUrl();
+
+      // onelink is generated
+      if (url) {
+        document.getElementById('andrd_link').setAttribute('href', url);
+        document.getElementById('ios_link').setAttribute('href', url);
+        document.getElementById('output_url').innerHTML = url;
+      }
+
+    };
+  </script>
 </body>
 
 </html>
