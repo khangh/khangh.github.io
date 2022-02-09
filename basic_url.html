@@ -81,13 +81,13 @@
           }
         });
 
-      let url2 = onelinkGenerator.generateUrl();
+      let url2= onelinkGenerator.generateUrl();
 
       // onelink is generated
       if (url2) {
-        document.getElementById('andrd_link2').setAttribute('href', url);
-        document.getElementById('ios_link2').setAttribute('href', url);
-        document.getElementById('output_url2').innerHTML = url;
+        document.getElementById('andrd_link2').setAttribute('href', url2);
+        document.getElementById('ios_link2').setAttribute('href', url2);
+        document.getElementById('output_url2').innerHTML = url2;
       }
 
     };
