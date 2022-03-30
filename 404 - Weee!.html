@@ -42229,12 +42229,12 @@
 
 
 
-  <script type="text/javascript"
-    id="">function getQueryVariable(a) { var b = window.location.search.substring(1); b = b.split("\x26"); for (var c = 0; c < b.length; c++) { var e = b[c].split("\x3d"); if (e[0] == a) return e[1] } return !1 }
-      !function (a, b, c, e, k, h, f, d, g) { a.AppsFlyerSdkObject = k; a.AF = a.AF || function () { (a.AF.q = a.AF.q || []).push([Date.now()].concat(Array.prototype.slice.call(arguments))) }; a.AF.id = a.AF.id || f; a.AF.plugins = {}; d = b.createElement(c); g = b.getElementsByTagName(c)[0]; d.async = 1; d.src = "https://websdk.appsflyer.com?" + (0 < h.length ? "st\x3d" + h.split(",").sort().join(",") + "\x26" : "") + (0 < f.length ? "af_id\x3d" + f : ""); g.parentNode.insertBefore(d, g) }(window, document, "script", 0, "AF", "pba,banners", {
-        pba: { webAppId: "fee7bef7-d09d-4441-bc1d-2c8b7e8943b9" },
-        banners: { key: "2f809f7d-1319-4f35-b02e-bedd5f8592ce" }
-      }); -1 === navigator.userAgent.indexOf("Alipay") && -1 === navigator.userAgent.indexOf("MicroMessenger") && -1 === navigator.userAgent.indexOf("Googlebot") && "offline" != getQueryVariable("event") && "close" != getQueryVariable("event") && AF("banners", "showBanner"); ENV.userID && AF("pba", "setCustomerUserId", ENV.userID);</script>
+<script>
+  !function(t,e,n,s,a,c,i,o,p){t.AppsFlyerSdkObject=a,t.AF=t.AF||function(){(t.AF.q=t.AF.q||[]).push([Date.now()].concat(Array.prototype.slice.call(arguments)))},t.AF.id=t.AF.id||i,t.AF.plugins={},o=e.createElement(n),p=e.getElementsByTagName(n)[0],o.async=1,o.src="https://websdk.appsflyer.com?"+(c.length>0?"st="+c.split(",").sort().join(",")+"&":"")+(i.length>0?"af_id="+i:""),p.parentNode.insertBefore(o,p)}(window,document,"script",0,"AF","banners",{banners: {key: "2f809f7d-1319-4f35-b02e-bedd5f8592ce"}})
+  AF('banners', 'showBanner', { bannerContainerQuery: "#container",
+              bannerZIndex: 1000,              
+              additionalParams: { p1: "v1", p2: "v2"}});
+  </script>
   <script type="text/javascript"
     id="">(function (c, d, f, g, e) { c[e] = c[e] || []; var h = function () { var b = { ti: "17540290" }; b.q = c[e]; c[e] = new UET(b); c[e].push("pageLoad") }; var a = d.createElement(f); a.src = g; a.async = 1; a.onload = a.onreadystatechange = function () { var b = this.readyState; b && "loaded" !== b && "complete" !== b || (h(), a.onload = a.onreadystatechange = null) }; d = d.getElementsByTagName(f)[0]; d.parentNode.insertBefore(a, d) })(window, document, "script", "//bat.bing.com/bat.js", "uetq");</script>
   <script type="text/javascript"
