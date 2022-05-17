@@ -9,9 +9,15 @@
     <!-- Alternatively, you can extract data from localStorage or cookies,
             in case data was set in either of them during the subscription process
         -->
-    <script>
+    <!-- <script>
         function purchaseCheckout() {
             AF('pba', 'event', { eventType: 'EVENT', eventValue: { 'category': 'holiday_promotion' }, eventName: 'checkout' });
+        }
+    </script> -->
+
+    <script>
+        function purchaseCheckout() {
+            AF('pba', 'event', { eventType: "EVENT", eventName: 'af_download' });
         }
     </script>
 
