@@ -12,7 +12,7 @@
     <!-- Alternatively, you can extract data from localStorage or cookies,
             in case data was set in either of them during the subscription process
         -->
-    <!-- <script>
+   <!-- <script>
         function purchaseCheckout() {
             AF('pba', 'event', { eventType: 'EVENT', eventValue: { 'category': 'holiday_promotion' }, eventName: 'checkout' });
         }
@@ -29,13 +29,13 @@
             AF('pba', 'event', { eventType: 'EVENT', eventValue: { 'category': 'holiday_promotion' }, eventValue: { 'label': 'newspaper' }, eventName: 'subscription' });
         }
     </script>
-    <!-- <script>
+    <script>
         window.onload = function () {
             document.getElementById('displayBanner').addEventListener('click', function () {
                 AF('banners', 'showBanner')
             });
         }
-    </script> -->
+    </script>
 </head>
 
 <body>
@@ -58,7 +58,7 @@
     </ul>
     </p>
 
-    <!-- <button id='checkout'>Purchase Checkout</button> -->
+    <button id='checkout'>Purchase Checkout</button>
     <button onclick="purchaseCheckout()">Purchase Checkout</button>
     <!-- <button onclick="deleteSession()">Delete Session</button> -->
     <!-- <button id='displayBanner'>Display Banner</button> -->
