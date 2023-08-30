@@ -53,34 +53,6 @@
       <pre>
       <textarea id="input_code_for_run" class="prism-live line-numbers language-js fill" spellcheck="false">
 
-      //Initializing Smart Script arguments
-      // ***** The OneLink template MUST have  cross platform *****
-      var oneLinkURL = "https://engmntqa.onelink.me/WyIl/";
-      var mediaSource = {keys: ["inmedia"], defaultValue: "my_media_source_default_value"};
-      var campaign = {keys: ["incmp"]};
-      // !! Impotant - MUST for Cross-Platform
-      // Apart from the template being enabled, the following param MUST be passed
-      var crossPlatformFlag = {paramKey: "af_xplatform", keys: [], defaultValue: "true"}
-  
-      //Calling the function after embedding the code will be through a global parameter on the window object called window.AF_SMART_SCRIPT
-      //Onelink URL is generated
-      var result = window.AF_SMART_SCRIPT.generateOneLinkURL({
-        oneLinkURL,
-        afParameters:{
-          mediaSource: mediaSource,
-          campaign: campaign,
-          afCustom: [
-            crossPlatformFlag
-          ]
-        }
-      })
-      
-      var result_url = "No output from script"
-      if (result) {
-            result_url = result.clickURL;            
-            console.log(result);
-            document.getElementById('andrd_link').setAttribute('href', result_url);
-            document.getElementById('ios_link').setAttribute('href', result_url);
             // The following command will fire the impression.
             // The impression will fire to https://impressions.onelink.me//....
             // The wait is a temporary bug fix
@@ -88,9 +60,7 @@
             setTimeout(() => {
               window.AF_SMART_SCRIPT.fireImpressionsLink();
               console.log("Impression fired"); 
-            }, 1000);            
-      }      
-      document.getElementById('output_url').innerHTML = result_url;
+            }, 1000);             
       
       </textarea>
   </pre>
