@@ -98,6 +98,12 @@
             Attributions by Media Source (Pie Chart)
         </p>
     </figure>
+    <figure class="highcharts-figure7">
+        <div id="container7"></div>
+        <p class="highcharts-description7">
+            Horizontal Stacked Bar for In-App Events
+        </p>
+    </figure>
     <script type="text/javascript">
         let chart1 = Highcharts.chart('container1', {
 
@@ -429,15 +435,45 @@
             }]
         });
     </script>
-    <script>
-        var small_film_set = [
-            { id: 1, title: "The Shawshank Redemption", year: 1994, votes: 678790, rating: 9.2, rank: 1, category: "Thriller" },
-            { id: 2, title: "The Godfather", year: 1972, votes: 511495, rating: 9.2, rank: 2, category: "Crime" },
-            { id: 3, title: "The Godfather: Part II", year: 1974, votes: 319352, rating: 9.0, rank: 3, category: "Crime" },
-            { id: 4, title: "The Good, the Bad and the Ugly", year: 1966, votes: 213030, rating: 8.9, rank: 4, category: "Western" },
-            { id: 5, title: "Pulp fiction", year: 1994, votes: 533848, rating: 8.9, rank: 5, category: "Crime" },
-            { id: 6, title: "12 Angry Men", year: 1957, votes: 164558, rating: 8.9, rank: 6, category: "Western" }
-        ];
+    <br>
+    <script type="text/javascript">
+        let chart7 = Highcharts.chart('container7', {
+            chart: {
+                type: 'bar'
+            },
+            title: {
+                text: ''
+            },
+            xAxis: {
+                categories: ['level_5_achieved', 'af_purchase', 'level_10_achieved', 'tutorial_completed', 'ad_monetized']
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: ''
+                }
+            },
+            legend: {
+                reversed: true
+            },
+            plotOptions: {
+                series: {
+                    stacking: 'normal',
+                    dataLabels: {
+                        enabled: true
+                    }
+                }
+            },
+            series: [{
+                name: 'Non-organic',
+                data: [413, 471, 612, 157, 128],
+                color: '#51CF66'
+            }, {
+                name: 'Organic',
+                data: [501, 374, 129, 628, 117],
+                color: '#339AF0'
+            }]
+        });
     </script>
     <h1>Thank you for visiting my Github!</h1>
     <h1>This is an AppsFlyer Test</h1>
