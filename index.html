@@ -77,7 +77,13 @@
     <figure class="highcharts-figure3">
         <div id="container3"></div>
         <p class="highcharts-description3">
-            Line Chart
+            Bar Chart by Media Source
+        </p>
+    </figure>
+    <figure class="highcharts-figure4">
+        <div id="container4"></div>
+        <p class="highcharts-description4">
+            Attributions by Media Source (Pie Chart)
         </p>
     </figure>
     <script type="text/javascript">
@@ -269,6 +275,61 @@
                 data: [220, 345, 429, 578, 123, 321, 365],
             }]
         });
+    </script>
+    <br>
+    <script type="text/javascript">
+        // Data retrieved from https://netmarketshare.com/
+        let chart4 = Highcharts.chart('container4', {
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: 0,
+                plotShadow: false
+            },
+            title: {
+                text: 'Browser<br>shares<br>January<br>2022',
+                align: 'center',
+                verticalAlign: 'middle',
+                y: 60
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            accessibility: {
+                point: {
+                    valueSuffix: '%'
+                }
+            },
+            plotOptions: {
+                pie: {
+                    dataLabels: {
+                        enabled: true,
+                        distance: -50,
+                        style: {
+                            fontWeight: 'bold',
+                            color: 'white'
+                        }
+                    },
+                    startAngle: 90,
+                    endAngle: 90,
+                    center: ['50%', '75%'],
+                    size: '110%'
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: 'Browser share',
+                innerSize: '100%',
+                data: [
+                    ['Facebook Ads', 73.86],
+                    ['googleadwords_int', 11.97],
+                    ['tiktokglobal_int', 5.52],
+                    ['Organic', 2.98],
+                    ['Email', 1.90],
+                    ['SMS', 3.77]
+                ]
+            }]
+        });
+
     </script>
     <h1>Thank you for visiting my Github!</h1>
     <h1>This is an AppsFlyer Test</h1>
