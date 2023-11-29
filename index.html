@@ -86,6 +86,18 @@
             Attributions by Media Source (Pie Chart)
         </p>
     </figure>
+    <figure class="highcharts-figure5">
+        <div id="container5"></div>
+        <p class="highcharts-description5">
+            Attributions by Media Source (Pie Chart)
+        </p>
+    </figure>
+    <figure class="highcharts-figure6">
+        <div id="container6"></div>
+        <p class="highcharts-description6">
+            Attributions by Media Source (Pie Chart)
+        </p>
+    </figure>
     <script type="text/javascript">
         let chart1 = Highcharts.chart('container1', {
 
@@ -322,8 +334,101 @@
                 ]
             }]
         });
-
     </script>
+        <br>
+        <script type="text/javascript">
+            let chart5 = Highcharts.chart('container5', {
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: 0,
+                    plotShadow: false
+                },
+                title: {
+                    text: 'Loyal users',
+                    align: 'center',
+                },
+                tooltip: {
+                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                },
+                accessibility: {
+                    point: {
+                        valueSuffix: '%'
+                    }
+                },
+                plotOptions: {
+                    pie: {
+                        dataLabels: {
+                            enabled: false,
+                            style: {
+                                fontWeight: 'bold',
+                                color: 'white'
+                            }
+                        },
+                        showInLegend: true
+                    }
+                },
+                series: [{
+                    type: 'pie',
+                    name: '',
+                    innerSize: '75%',
+                    data: [
+                        ['Facebook Ads', 73.86],
+                        ['googleadwords_int', 11.97],
+                        ['tiktokglobal_int', 5.52],
+                        ['Organic', 2.98],
+                        ['Email', 1.90],
+                        ['SMS', 3.77]
+                    ]
+                }]
+            });
+        </script>
+            <br>
+            <script type="text/javascript">
+                let chart6 = Highcharts.chart('container6', {
+                    chart: {
+                        plotBackgroundColor: null,
+                        plotBorderWidth: 0,
+                        plotShadow: false
+                    },
+                    title: {
+                        text: 'Revenue',
+                        align: 'center',
+                    },
+                    tooltip: {
+                        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                    },
+                    accessibility: {
+                        point: {
+                            valueSuffix: '%'
+                        }
+                    },
+                    plotOptions: {
+                        pie: {
+                            dataLabels: {
+                                enabled: false,
+                                style: {
+                                    fontWeight: 'bold',
+                                    color: 'white'
+                                }
+                            },
+                            showInLegend: true
+                        }
+                    },
+                    series: [{
+                        type: 'pie',
+                        name: '',
+                        innerSize: '75%',
+                        data: [
+                            ['Facebook Ads', 73.86],
+                            ['googleadwords_int', 11.97],
+                            ['tiktokglobal_int', 5.52],
+                            ['Organic', 2.98],
+                            ['Email', 1.90],
+                            ['SMS', 3.77]
+                        ]
+                    }]
+                });
+            </script>
     <h1>Thank you for visiting my Github!</h1>
     <h1>This is an AppsFlyer Test</h1>
     <h2>I Repeat</h2>
