@@ -102,139 +102,141 @@
             is showing data labels for each individual section of the stack.
         </p>
     </figure>
+    <div>
+        <script type="text/javascript">
+            // Data retrieved from https://en.wikipedia.org/wiki/Winter_Olympic_Games
+            Highcharts.chart('container', {
 
-    <script type="text/javascript">
-        // Data retrieved from https://en.wikipedia.org/wiki/Winter_Olympic_Games
-        Highcharts.chart('container', {
+                chart: {
+                    type: 'column'
+                },
 
-            chart: {
-                type: 'column'
-            },
-
-            title: {
-                text: '',
-                align: 'left'
-            },
-
-            xAxis: {
-                categories: ['Nov 21', 'Nov 22', 'Nov 23', 'Nov 24', 'Nov 25', 'Nov 26', 'Nov 27'],
                 title: {
-                    text: 'Attribution dates'
-                }
-            },
+                    text: '',
+                    align: 'left'
+                },
 
-            yAxis: {
-                allowDecimals: false,
-                min: 0,
-                title: {
-                    text: 'Attributions',
-                    verticalAlign: 'top',
-                    layout: 'horizontal',
-                    floating: true
-                }
-            },
-
-            tooltip: {
-                format: '<b>{key}</b><br/>{series.name}: {y}<br/>' +
-                    'Total: {point.stackTotal}'
-            },
-
-            plotOptions: {
-                column: {
-                    stacking: 'normal'
-                }
-            },
-
-            series: [{
-                name: 'Organic',
-                data: [1099, 1326, 1143, 1098, 1166, 1128, 1206],
-                color: '#51CF66'
-            }, {
-                name: 'Non-organic',
-                data: [8205, 8019, 7146, 7227, 7264, 7269, 7644],
-                color: '#339AF0'
-            }]
-        });
-    </script>
-    <script type="text/javascript">
-        Highcharts.chart('container', {
-
-            title: {
-                text: '',
-                align: 'left'
-            },
-
-            subtitle: {
-                text: '',
-                align: 'left'
-            },
-
-            yAxis: {
-                title: {
-                    text: 'Impressions/Clicks'
-                }
-            },
-
-            xAxis: {
-                accessibility: {
-                    rangeDescription: 'Range: Nov 21 to Nov 27'
-                }
-            },
-
-            legend: {
-                layout: 'vertical',
-                align: 'bottom',
-                verticalAlign: 'middle'
-            },
-
-            plotOptions: {
-                series: {
-                    label: {
-                        connectorAllowed: false
+                xAxis: {
+                    categories: ['Nov 21', 'Nov 22', 'Nov 23', 'Nov 24', 'Nov 25', 'Nov 26', 'Nov 27'],
+                    title: {
+                        text: 'Attribution dates'
                     }
-                }
-            },
+                },
 
-            series: [{
-                name: 'Facebook Ads',
-                data: [43934, 48656, 65165, 81827, 112143, 142383,
-                    171533, 165174, 155157, 161454, 154610]
-            }, {
-                name: 'googladwords_int',
-                data: [24916, 37941, 29742, 29851, 32490, 30282,
-                    38121, 36885, 33726, 34243, 31050]
-            }, {
-                name: 'tiktokglobal_int',
-                data: [11744, 30000, 16005, 19771, 20185, 24377,
-                    32147, 30912, 29243, 29213, 25663]
-            }, {
-                name: 'Email',
-                data: [null, null, null, null, null, null, null,
-                    null, 11164, 11218, 10077]
-            }, {
-                name: 'SMS',
-                data: [21908, 5548, 8105, 11248, 8989, 11816, 18274,
-                    17300, 13053, 11906, 10073]
-            }],
+                yAxis: {
+                    allowDecimals: false,
+                    min: 0,
+                    title: {
+                        text: 'Attributions',
+                        verticalAlign: 'top',
+                        layout: 'horizontal',
+                        floating: true
+                    }
+                },
 
-            responsive: {
-                rules: [{
-                    condition: {
-                        maxWidth: 500
-                    },
-                    chartOptions: {
-                        legend: {
-                            layout: 'horizontal',
-                            align: 'center',
-                            verticalAlign: 'bottom'
+                tooltip: {
+                    format: '<b>{key}</b><br/>{series.name}: {y}<br/>' +
+                        'Total: {point.stackTotal}'
+                },
+
+                plotOptions: {
+                    column: {
+                        stacking: 'normal'
+                    }
+                },
+
+                series: [{
+                    name: 'Organic',
+                    data: [1099, 1326, 1143, 1098, 1166, 1128, 1206],
+                    color: '#51CF66'
+                }, {
+                    name: 'Non-organic',
+                    data: [8205, 8019, 7146, 7227, 7264, 7269, 7644],
+                    color: '#339AF0'
+                }]
+            });
+        </script>
+    </div>
+    <div>
+        <script type="text/javascript">
+            Highcharts.chart('container', {
+
+                title: {
+                    text: '',
+                    align: 'left'
+                },
+
+                subtitle: {
+                    text: '',
+                    align: 'left'
+                },
+
+                yAxis: {
+                    title: {
+                        text: 'Impressions/Clicks'
+                    }
+                },
+
+                xAxis: {
+                    accessibility: {
+                        rangeDescription: 'Range: Nov 21 to Nov 27'
+                    }
+                },
+
+                legend: {
+                    layout: 'vertical',
+                    align: 'bottom',
+                    verticalAlign: 'middle'
+                },
+
+                plotOptions: {
+                    series: {
+                        label: {
+                            connectorAllowed: false
                         }
                     }
-                }]
-            }
+                },
 
-        });
+                series: [{
+                    name: 'Facebook Ads',
+                    data: [43934, 48656, 65165, 81827, 112143, 142383,
+                        171533, 165174, 155157, 161454, 154610]
+                }, {
+                    name: 'googladwords_int',
+                    data: [24916, 37941, 29742, 29851, 32490, 30282,
+                        38121, 36885, 33726, 34243, 31050]
+                }, {
+                    name: 'tiktokglobal_int',
+                    data: [11744, 30000, 16005, 19771, 20185, 24377,
+                        32147, 30912, 29243, 29213, 25663]
+                }, {
+                    name: 'Email',
+                    data: [null, null, null, null, null, null, null,
+                        null, 11164, 11218, 10077]
+                }, {
+                    name: 'SMS',
+                    data: [21908, 5548, 8105, 11248, 8989, 11816, 18274,
+                        17300, 13053, 11906, 10073]
+                }],
 
-    </script>
+                responsive: {
+                    rules: [{
+                        condition: {
+                            maxWidth: 500
+                        },
+                        chartOptions: {
+                            legend: {
+                                layout: 'horizontal',
+                                align: 'center',
+                                verticalAlign: 'bottom'
+                            }
+                        }
+                    }]
+                }
+
+            });
+        </script>
+    </div>
     <h1>Thank you for visiting my Github!</h1>
     <h1>This is an AppsFlyer Test</h1>
     <h2>I Repeat</h2>
