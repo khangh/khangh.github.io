@@ -301,18 +301,21 @@
             plotOptions: {
                 pie: {
                     dataLabels: {
-                        enabled: true,
-                        distance: -50,
+                        enabled: false,
+                        distance: -40,
                         style: {
                             fontWeight: 'bold',
                             color: 'white'
                         }
                     },
-                    startAngle: 90,
-                    endAngle: 90,
                     center: ['50%', '75%'],
                     size: '75%'
                 }
+            },
+            legend: {
+                layout: 'horizontal',
+                align: 'center',
+                verticalAlign: 'bottom'
             },
             series: [{
                 type: 'pie',
