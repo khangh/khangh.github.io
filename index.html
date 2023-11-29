@@ -111,20 +111,20 @@
                 type: 'column'
             },
 
-            title: {
+            /* title: {
                 text: 'Olympic Games all-time medal table, grouped by continent',
                 align: 'left'
-            },
+            }, */
 
             xAxis: {
-                categories: ['Gold', 'Silver', 'Bronze']
+                categories: ['Nov 21', 'Nov 22', 'Nov 23', 'Nov 24', 'Nov 25', 'Nov 26', 'Nov 27']
             },
 
             yAxis: {
                 allowDecimals: false,
                 min: 0,
                 title: {
-                    text: 'Count medals'
+                    text: 'Attributions'
                 }
             },
 
@@ -140,21 +140,11 @@
             },
 
             series: [{
-                name: 'Norway',
-                data: [148, 133, 124],
-                stack: 'Europe'
+                name: 'Organic',
+                data: [1099, 1326, 1143, 1098, 1166, 1128, 1206],
             }, {
-                name: 'Germany',
-                data: [102, 98, 65],
-                stack: 'Europe'
-            }, {
-                name: 'United States',
-                data: [113, 122, 95],
-                stack: 'North America'
-            }, {
-                name: 'Canada',
-                data: [77, 72, 80],
-                stack: 'North America'
+                name: 'Non-organic',
+                data: [8205, 8019, 7146, 7227, 7264, 7269, 7644],
             }]
         });
     </script>
