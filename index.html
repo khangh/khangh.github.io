@@ -74,8 +74,13 @@
             Line Chart
         </p>
     </figure>
+    <figure class="highcharts-figure3">
+        <div id="container3"></div>
+        <p class="highcharts-description3">
+            Line Chart
+        </p>
+    </figure>
     <script type="text/javascript">
-        // Data retrieved from https://en.wikipedia.org/wiki/Winter_Olympic_Games
         let chart1 = Highcharts.chart('container1', {
 
             chart: {
@@ -200,6 +205,71 @@
                 }]
             }
 
+        });
+    </script>
+    <br>
+    <script type="text/javascript">
+        let chart3 = Highcharts.chart('container3', {
+
+            chart: {
+                type: 'column'
+            },
+
+            title: {
+                text: '',
+                align: 'left'
+            },
+
+            xAxis: {
+                categories: ['Nov 21', 'Nov 22', 'Nov 23', 'Nov 24', 'Nov 25', 'Nov 26', 'Nov 27'],
+                title: {
+                    text: 'Attribution dates'
+                }
+            },
+
+            yAxis: {
+                allowDecimals: false,
+                min: 0,
+                title: {
+                    text: 'Attributions',
+                    verticalAlign: 'top',
+                    layout: 'horizontal',
+                    floating: true
+                }
+            },
+
+            tooltip: {
+                format: '<b>{key}</b><br/>{series.name}: {y}<br/>' +
+                    'Total: {point.stackTotal}'
+            },
+
+            plotOptions: {
+                column: {
+                    stacking: 'normal'
+                }
+            },
+
+            series: [{
+                name: 'Organic',
+                data: [1099, 1326, 1143, 1098, 1166, 1128, 1206],
+                color: '#51CF66'
+            }, {
+                name: 'Facebook Ads',
+                data: [8205, 8019, 7146, 7227, 7264, 7269, 7644],
+                color: '#339AF0'
+            }, {
+                name: 'googleadwords_int',
+                data: [1337, 2303, 1856, 2001, 1459, 1600, 1802],
+            }, {
+                name: 'tiktokglobal_int',
+                data: [456, 376, 501, 221, 350, 401, 235],
+            }, {
+                name: 'Email',
+                data: [158, 287, 278, 137, 302, 56, 400],
+            }, {
+                name: 'SMS',
+                data: [220, 345, 429, 578, 123, 321, 365],
+            }]
         });
     </script>
     <h1>Thank you for visiting my Github!</h1>
