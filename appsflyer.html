@@ -13,30 +13,30 @@
     <p>I'm hosted with GitHub Pages.</p>
     <script type="text/javascript" charset="utf-8">
         webix.ready(function () {
-            webix.ui({
-                rows: [
-                    { template: "Hi there!" },
-                    { template: "You're doing great!" }
+            var treetable = webix.ui({
+                view: "treetable",
+                columns: [
+                    { id: "id", header: "", width: 50 },
+                    {
+                        id: "value", header: "Film title", width: 250,
+                        template: "{common.treetable()} #value#"
+                    },
+                    { id: "chapter", header: "Mode", width: 200 }
+                ],
+                data: [
+                    {
+                        "id": "1", "value": "The Shawshank Redemption", "open": true, "data": [
+                            { "id": "1.1", "value": "Part 1", "chapter": "alpha" },
+                            {
+                                "id": "1.2", "value": "Part 2", "chapter": "beta", "open": true, "data": [
+                                    { "id": "1.2.1", "value": "Part 1", "chapter": "beta-twin" }
+                                ]
+                            }
+                        ]
+                    }
                 ]
             });
         });
-
-        webix.ui({
-            view: "scrollview",
-            scroll: "y",
-            body: {
-                rows: [
-                    { view: "label", label: "JSON" },
-                    grid1,
-                    { view: "label", label: "XML" },
-                    grid2,
-                    { view: "label", label: "CSV" },
-                    grid3,
-                    { view: "label", label: "jsArray" },
-                    grid4
-                ]
-            }
-        }); 
     </script>
 </body>
 
