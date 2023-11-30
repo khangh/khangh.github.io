@@ -18,18 +18,27 @@
                 columns: [
                     { id: "id", header: "", width: 50 },
                     {
-                        id: "value", header: "Film title", width: 250,
+                        id: "value", header: "Totals", width: 250,
                         template: "{common.treetable()} #value#"
                     },
-                    { id: "chapter", header: "Mode", width: 200 }
+                    { id: "", header: "Total", width: 200 },
+                    { id: "", header: "Installs", width: 200 },
+                    { id: "", header: "Re-attributions", width: 200 },
+                    { id: "", header: "Re-engagements", width: 200 },
+                    { id: "", header: "Impressions", width: 200 },
+                    { id: "", header: "Clicks", width: 200 },
+                    { id: "", header: "Conversion Rate", width: 200 },
+                    { id: "", header: "Cost ($)", width: 200 },
+                    { id: "", header: "Revenue ($)", width: 200 },
+
                 ],
                 data: [
                     {
-                        "id": "1", "value": "The Shawshank Redemption", "open": true, "data": [
-                            { "id": "1.1", "value": "Part 1", "chapter": "alpha" },
+                        "id": "", "value": "The Shawshank Redemption", "open": false, "data": [
+                            { "id": "", "value": "Part 1", "chapter": "alpha" },
                             {
-                                "id": "1.2", "value": "Part 2", "chapter": "beta", "open": true, "data": [
-                                    { "id": "1.2.1", "value": "Part 1", "chapter": "beta-twin" }
+                                "id": "", "value": "Part 2", "chapter": "beta", "open": false, "data": [
+                                    { "id": "", "value": "Part 1", "chapter": "beta-twin" }
                                 ]
                             }
                         ]
