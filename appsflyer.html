@@ -20,6 +20,23 @@
                 ]
             });
         });
+
+        webix.ui({
+            view: "scrollview",
+            scroll: "y",
+            body: {
+                rows: [
+                    { view: "label", label: "JSON" },
+                    grid1,
+                    { view: "label", label: "XML" },
+                    grid2,
+                    { view: "label", label: "CSV" },
+                    grid3,
+                    { view: "label", label: "jsArray" },
+                    grid4
+                ]
+            }
+        }); 
     </script>
 </body>
 
