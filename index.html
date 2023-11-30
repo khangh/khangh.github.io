@@ -475,6 +475,51 @@
             }]
         });
     </script>
+    <br>
+    <script>
+        let chart8 = Highcharts.chart('container8', {
+            chart: {
+                type: 'bar'
+            },
+            title: {
+                text: '',
+                align: 'left'
+            },
+            subtitle: {
+                text: '',
+                align: 'left'
+            },
+            xAxis: {
+                categories: ['Facebook Ads', 'tapjoy_int', 'snapchat_int', 'tiktokglobal_int', 'googleadwords_int', 'Email', 'SMS']
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Percent'
+                }
+            },
+            tooltip: {
+                pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.percentage:.0f}%)<br/>',
+                shared: true
+            },
+            plotOptions: {
+                column: {
+                    stacking: 'percent',
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.percentage:.0f}%'
+                    }
+                }
+            },
+            series: [{
+                name: 'Non-organic',
+                data: [434, 290, 307, 223, 581, 269, 513]
+            }, {
+                name: 'Assisted',
+                data: [272, 153, 156, 101, 201, 372, 516]
+            }]
+        });
+    </script>
     <h1>Thank you for visiting my Github!</h1>
     <h1>This is an AppsFlyer Test</h1>
     <h2>I Repeat</h2>
