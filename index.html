@@ -104,9 +104,15 @@
             Horizontal Stacked Bar for In-App Events
         </p>
     </figure>
-    <figure class="highcharts-figure7">
+    <figure class="highcharts-figure8">
         <div id="container8"></div>
         <p class="highcharts-description8">
+            Horizontal Stacked Bar for In-App Events
+        </p>
+    </figure>
+    <figure class="highcharts-figure9">
+        <div id="container9"></div>
+        <p class="highcharts-description9">
             Horizontal Stacked Bar for In-App Events
         </p>
     </figure>
@@ -523,6 +529,56 @@
             }, {
                 name: 'Assisted',
                 data: [272, 153, 156, 101, 201, 372, 516]
+            }]
+        });
+    </script>
+    <br>
+    <script type="text/javascript">
+        let chart9 = Highcharts.chart('container9', {
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: 0,
+                plotShadow: false
+            },
+            title: {
+                text: 'Cost',
+                align: 'center',
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            accessibility: {
+                point: {
+                    valueSuffix: '%'
+                }
+            },
+            plotOptions: {
+                pie: {
+                    dataLabels: {
+                        enabled: false,
+                        style: {
+                            fontWeight: 'bold',
+                            color: 'white'
+                        }
+                    },
+                    showInLegend: true
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: '',
+                innerSize: '75%',
+                data: [
+                    ['Facebook Ads', 38],
+                    ['googleadwords_int', 5],
+                    ['tiktokglobal_int', 6],
+                    ['snapchat_int', 10],
+                    ['tapjoy_int', 22]
+                    ['Organic', 3],
+                    ['Email', 2],
+                    ['SMS', 4],
+                    ['Website', 10]
+                ]
             }]
         });
     </script>
