@@ -1,41 +1,39 @@
 <!DOCTYPE html>
 <html lang="en-US">
 
-<html>
-
 <head>
-	<script>
-		!function (t, e, n, s, a, c, i, o, p) {
-			t.AppsFlyerSdkObject = a, t.AF = t.AF || function () {
-				(t.AF.q = t.AF.q || []).push([Date.now()].concat(Array.prototype.slice.call(arguments)))
-			},
-			t.AF.id = t.AF.id || i, t.AF.plugins = {}, o = e.createElement(n), p = e.getElementsByTagName(n)[0], o.async = 1,
-			o.src = "https://websdk.appsflyer.com?" + (c.length > 0 ? "st=" + c.split(",").sort().join(",") + "&" : "") + (i.length > 0 ? "af_id=" + i : ""),
-			p.parentNode.insertBefore(o, p)
-		}(window, document, "script", 0, "AF", "pba,banners", { pba: { webAppId: "50d593cf-9695-4c79-9c76-add472bb0b4d" }, banners: { key: "2f809f7d-1319-4f35-b02e-bedd5f8592ce" } });
-		AF('banners', 'showBanner');
-	</script>
-	<!-- Assume that data about products in the shopping cart
-    is stored in localStorage -->
-	<script>
-		window.onload = function () { AF('pba', 'setCustomerUserId', '663274') }
-	</script>
-	<script>
-		window.onload = function () {
-			document.getElementById('subscribe').addEventListener('click', function () {
-				AF('pba', 'event', { eventType: 'EVENT', eventValue: { 'category': 'go_plus_user' }, eventName: 'subscribe' });
-				// Associate all current user web events to distinct ID 663274 
-				AF('pba', 'setCustomerUserId', '663274')
-			});
-		}
-	</script>
+  <script>
+    !function (t, e, n, s, a, c, i, o, p) {
+      t.AppsFlyerSdkObject = a, t.AF = t.AF || function () {
+        (t.AF.q = t.AF.q || []).push([Date.now()].concat(Array.prototype.slice.call(arguments)))
+      },
+      t.AF.id = t.AF.id || i, t.AF.plugins = {}, o = e.createElement(n), p = e.getElementsByTagName(n)[0], o.async = 1,
+      o.src = "https://websdk.appsflyer.com?" + (c.length > 0 ? "st=" + c.split(",").sort().join(",") + "&" : "") + (i.length > 0 ? "af_id=" + i : ""),
+      p.parentNode.insertBefore(o, p)
+    }(window, document, "script", 0, "AF", "pba,banners", { pba: { webAppId: "50d593cf-9695-4c79-9c76-add472bb0b4d" }, banners: { key: "2f809f7d-1319-4f35-b02e-bedd5f8592ce" } });
+    AF('banners', 'showBanner');
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Set the customer user ID globally when the page loads
+      AF('pba', 'setCustomerUserId', '663274');
+
+      // Add a click event listener to the subscribe button
+      document.getElementById('subscribe').addEventListener('click', function () {
+        AF('pba', 'event', {
+          eventType: 'EVENT',
+          eventValue: { 'category': 'go_plus_user' },
+          eventName: 'subscribe'
+        });
+      });
+    });
+  </script>
 </head>
 
 <body>
-	<h1>Sound of Music</h1>
-	<button id='subscribe'>Subscribe</button>
+  <h1>Sound of Music</h1>
+  <p>Welcome to my test page!</p>
+  <button id="subscribe">Subscribe</button>
 </body>
-
-</html>
 
 </html>
